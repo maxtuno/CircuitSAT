@@ -28,7 +28,8 @@
     cur NUMBER          ; Set the current BIT to NUMBER.
     end                 ; Mandatory at the end of file.
 
-# Example
+# Example (examples folder)
+
     
     ; HALF ADDER
     new
@@ -58,10 +59,8 @@
 
     end
     
-    
-# Testing
-    
-    python3 test_tool.py file.cnf
+    > csat half_adder.csat
+    > python3 test_tool.py hald_adder.cnf
     
 ## Note
 Work in progress!
