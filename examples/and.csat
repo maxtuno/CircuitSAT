@@ -1,0 +1,8 @@
+new     ; A
+push
+new     ; B
+push
+new     ; C
+push
+or     ; A = B OR B
+end

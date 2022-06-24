@@ -1,0 +1,8 @@
+new     ; A
+push
+new     ; B
+push
+new     ; C
+push
+and     ; A = B AND B
+end

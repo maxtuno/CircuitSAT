@@ -1,0 +1,6 @@
+new     ; A
+push
+new     ; B
+push
+copy    ; A = B
+end
