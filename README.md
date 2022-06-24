@@ -21,8 +21,8 @@
     new                 ; Create a new BIT on REGISTER.
     push                ; Push REGISTER to STACK.
     pop                 ; Pop STACK to REGISTER.
-    true                ; Set BIT on REGISTER as TRUE.
-    false               ; Set BIT on REGISTER as FALSE.
+    true                ; Set BIT on TOP of STACK as TRUE.
+    false               ; Set BIT on TOP of STACK as FALSE.
     set ALPHANUMERIC    ; Save REGISTER at SLOT ALPHANUMERIC.
     get ALPHANUMERIC    ; Load SLOT ALPHANUMERIC into REGISTER.
     cur NUMBER          ; Set the current BIT to NUMBER.
