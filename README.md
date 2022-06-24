@@ -32,6 +32,7 @@
 
     
     ; HALF ADDER
+    
     new
     set A
     new
