@@ -1,8 +1,15 @@
 # Circuit SAT Assembler
 
-    pip install circuitsat
+## Installation
 
-# opcodes
+    pip install circuitsat
+  
+## Usage  
+    
+    csat file.csat
+
+# Opcodes
+
     not                 ; A = NOT B
     and                 ; A = B AND C
     or                  ; A = B OR C
