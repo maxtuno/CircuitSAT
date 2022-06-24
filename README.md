@@ -8,7 +8,7 @@
     
     csat file.csat
 
-# Opcodes
+## Opcodes
 
     not                 ; A = NOT B
     and                 ; A = B AND C
