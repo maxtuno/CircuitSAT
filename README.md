@@ -28,5 +28,40 @@
     cur NUMBER          ; Set the current BIT to NUMBER.
     end                 ; Mandatory at the end of file.
 
-# Note
+# Example
+    
+    ; HALF ADDER
+    new
+    set A
+    new
+    set B
+    new
+    set C
+    new
+    set S
+
+    get S
+    push
+    get B
+    push
+    get A
+    push
+    xor
+
+    get C
+    push
+    get B
+    push
+    get A
+    push
+    and
+
+    end
+    
+    
+# Testing
+    
+    python3 test_tool.py file.cnf
+    
+## Note
 Work in progress!
