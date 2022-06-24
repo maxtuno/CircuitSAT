@@ -90,7 +90,7 @@ get M3
 push
 get A1ANDB1
 push
-get A1ANDB1
+get C
 push
 and
 
