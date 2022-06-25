@@ -1,4 +1,4 @@
-# Generated from C:/Users/oscar/Downloads/Development/circuitsat\CircuitSAT.g4 by ANTLR 4.10.1
+# Generated from C:/Users/oscar/Documents/GitHub/circuitsat\CircuitSAT.g4 by ANTLR 4.10.1
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO

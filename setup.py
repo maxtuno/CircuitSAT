@@ -27,7 +27,7 @@ from distutils.core import setup
 
 setup(
     name='CircuitSAT',
-    version='0.0.0',
+    version='0.0.1',
     packages=['circuitsat'],
     url='https://twitter.com/maxtuno',
     license='MIT',

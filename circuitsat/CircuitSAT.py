@@ -139,7 +139,7 @@ class CicuitSAT(CircuitSATVisitor):
     def visitEnd(self, ctx: CircuitSATParser.EndContext):
         self.cnf_file.close()
         cnf_file = open(self.file_name, 'r+')
-        header = 'c CicuitSAT Assembler\n' + 'p cnf {} {}'.format(self.current_literal, self.current_clause)
+        header = 'c CircuitSAT Assembler\n' + 'p cnf {} {}'.format(self.current_literal, self.current_clause)
         content = cnf_file.read()
         cnf_file.seek(0, 0)
         cnf_file.write(header.rstrip('\r\n') + '\n' + content)
