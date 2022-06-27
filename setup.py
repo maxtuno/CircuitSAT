@@ -27,12 +27,12 @@ from distutils.core import setup
 
 setup(
     name='CircuitSAT',
-    version='0.0.1',
+    version='0.0.3',
     packages=['circuitsat'],
     url='https://twitter.com/maxtuno',
     license='MIT',
     author='Oscar Riveros',
-    description='A Circuit SAT Assembler that emit CNF code.',
+    description='A Circuit SAT Language that emit CNF code.',
     install_requires=['antlr4-python3-runtime'],
     entry_points={'console_scripts': ['csat=circuitsat._csat:main']},
 )

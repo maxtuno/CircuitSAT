@@ -33,6 +33,6 @@ def satisfy(solver, params='', log=False, file_name=None):
 
 if __name__ == '__main__':
 
-    while satisfy(solver='./kissat', params='--relaxed', log=False, file_name=sys.argv[1]):
+    while satisfy(solver='./slime', params='', log=False, file_name=sys.argv[1]):
         pass
 

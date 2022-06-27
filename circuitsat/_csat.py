@@ -19,10 +19,10 @@ def main():
     token_stream.fill()
 
     parser = CircuitSATParser(token_stream)
-    tree = parser.circuitsat()
+    tree = parser.circuit()
 
     csat = CicuitSAT(file_name.replace('.csat', '.cnf'))
-    result = csat.visit(tree)
+    csat.visit(tree)
 
 
 if __name__ == '__main__':

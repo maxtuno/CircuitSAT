@@ -1,6 +1,0 @@
-new     ; A
-push
-new     ; B
-push
-not     ; A = NOt B
-end
