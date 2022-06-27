@@ -1,4 +1,5 @@
-# Circuit SAT Assembler
+# Circuit SAT Language 
+A high-level (and low-level) language that emit CNF code.
 
 ## Installation
 
