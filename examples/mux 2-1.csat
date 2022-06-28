@@ -2,9 +2,12 @@
     2-1 Multiplexer
 */
 
+t = true;
+f = false;
+
 asm
     new S
-    put S, true
+    put S, t
     new A
     new B
     new Z
