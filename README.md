@@ -26,8 +26,8 @@ A high-level (and low-level) language that emit CNF code.
 
     def half_adder(i)
         asm
-        xor A[i], B[i], S[i]
-        and A[i], B[i], C[i]
+            xor A[i], B[i], S[i]
+            and A[i], B[i], C[i]
         end
     end
 
