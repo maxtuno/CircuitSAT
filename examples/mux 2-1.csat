@@ -1,0 +1,20 @@
+/*
+    2-1 Multiplexer
+*/
+
+asm
+    new S
+    put S, true
+    new A
+    new B
+    new Z
+
+    new A_AND_B
+    new NOT_A
+    new S_NOT_A
+    
+    and A, B, A_AND_B
+    not A, NOT_A
+    and S, NOT_A, S_NOT_A
+    or  A_AND_B, S_NOT_A, Z
+end
