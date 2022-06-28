@@ -1,0 +1,38 @@
+/*
+    > csat half_adder.csat
+    > python3 test_tool.py 0 5 (only show the first 5 variables)
+*/
+
+asm
+    new A
+    new B
+    new Cin
+    new Sum
+    new Cout
+end
+
+def half_adder(i)
+    asm
+    xor A[i], B[i], S[i]
+    and A[i], B[i], C[i]
+    end
+end
+
+n = 2;
+for i=0 to n do
+    asm
+        new A[i]
+        new B[i]
+        new C[i]
+        new S[i]
+    end
+    half_adder(i);
+end
+asm
+    copy S[0], A[1]
+    copy A[0], A
+    copy B[0], B
+    copy B[1], Cin
+    copy S[1], Sum
+    or   C[0], C[1], Cout
+end

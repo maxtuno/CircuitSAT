@@ -1,3 +1,4 @@
+from statistics import mode
 import sys
 
 
@@ -23,8 +24,10 @@ def satisfy(solver, params='', log=False, file_name=None):
             if line.startswith('v '):
                 lines += line.strip('v ').strip('\n') + ' '
         if len(lines) > 0:
+            a = int(sys.argv[2])
+            b = int(sys.argv[3]) 
             model = list(map(int, lines.strip(' ').split(' ')))
-            print([int(lit > 0) for lit in model[:-1]])
+            print(''.join([str(int(lit > 0)) for lit in model[:-1][a:b]]))
             with open(file_name, 'a') as file:
                 file.write(' '.join([str(-int(literal)) for literal in model]) + '\n')
             return True
@@ -33,6 +36,8 @@ def satisfy(solver, params='', log=False, file_name=None):
 
 if __name__ == '__main__':
 
+    count = 0
     while satisfy(solver='./slime', params='', log=False, file_name=sys.argv[1]):
-        pass
+        count += 1
+    print(count)
 
