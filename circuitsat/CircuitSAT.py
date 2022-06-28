@@ -327,8 +327,6 @@ class CicuitSAT(CircuitSATVisitor):
             else:
                 b = y + str(self.visit(ctx.expression(1)))
 
-            print(a, b)
-
             self.apply_copy(a, b)
         elif opcode.startswith('not'):
             x, y = ctx.Identifier(0).getText(), ctx.Identifier(1).getText()
@@ -485,16 +483,22 @@ class CicuitSAT(CircuitSATVisitor):
 
             self.apply_nand(a, b, c)
         elif opcode.startswith('put'):
-            x, y = ctx.Identifier(0).getText(), ctx.Bool().getText()
+            x, y = ctx.Identifier(0).getText(), ctx.Identifier(1).getText()
 
             a = ctx.expression(0)
+            b = ctx.expression(1)
 
             if a is None:
                 a = x
             else:
                 a = x + str(self.visit(ctx.expression(0)))
 
-            self.apply_put(a, y)
+            if b is None:
+                b = y
+            else:
+                b = y + str(self.visit(ctx.expression(1)))
+
+            self.apply_put(a, b)
         return super().visitOpcode(ctx)
 
     def add_clauses(self, clauses):
@@ -510,16 +514,22 @@ class CicuitSAT(CircuitSATVisitor):
         self.current_literal += 1
         self.store[x] = self.current_literal
 
-    def apply_put(self, x, boolean):
+    def apply_put(self, x, y):
         if x not in self.store:
             if '[' in x and x[:x.index('[')] in self.store:
                 xl = self.store[x[:x.index('[')]]
                 x_ = xl[eval(x[x.index('[') + 1:-1])]
                 self.store[x] = x_
-        if boolean == 'true':
-            self.add_clauses([[self.store[x]]])
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
+        x, y = self.store[x], self.store[y]
+        if y:
+            self.add_clauses([[x]])
         else:
-            self.add_clauses([[-self.store[x]]])
+            self.add_clauses([[-1 * x]])
 
     def apply_not(self, x, y):
         if x not in self.store:
