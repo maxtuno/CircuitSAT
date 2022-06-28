@@ -2,11 +2,14 @@
     At Most One
 */
 
+t = true;
+f = false;
+
 asm
     new T
     new F
-    put T, true
-    put F, false
+    put T, t
+    put F, f
 end
 
 n = 4;
