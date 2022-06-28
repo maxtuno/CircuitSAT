@@ -1,0 +1,34 @@
+t = true;
+f = false;
+
+def half_adder(a, b)
+    asm
+        new C
+        new S
+        new A
+        new B
+
+        put A, a
+        put B, b
+
+        xor A, B, S
+        and B, C, C
+    end
+    return [C, S];
+end
+
+CS = half_adder(t, f);
+
+asm
+    new Out
+    put Out, t // t UNSAT CASE *
+    equ CS[0], CS[1], Out
+end
+
+/*
+A B C S
+0 0 0 0
+1 0 0 1 *
+0 1 0 1
+1 1 1 0
+*/
