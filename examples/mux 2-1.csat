@@ -1,23 +1,32 @@
 /*
-    2-1 Multiplexer
+    2:1 Multiplexer (MUX) 
 */
 
 t = true;
 f = false;
 
-asm
-    new S
-    put S, t
-    new A
-    new B
-    new Z
+def mx21(x, y, s)
+    asm
+        new A
+        put A, x
 
-    new A_AND_B
-    new NOT_A
-    new S_NOT_A
-    
-    and A, B, A_AND_B
-    not A, NOT_A
-    and S, NOT_A, S_NOT_A
-    or  A_AND_B, S_NOT_A, Z
+        new B
+        put B, y
+        
+        new S
+        put S, s
+        
+        new Out
+
+        new s_and_b
+        new a_and_not_s
+        new not_s
+        
+        not S, not_s
+        and A, not_s, a_and_not_s
+        and S, B, s_and_b
+        or  s_and_b, a_and_not_s, Out
+    end
 end
+
+mx21(true, true, true);
