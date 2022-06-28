@@ -13,7 +13,7 @@ A high-level (and low-level) language that emit CNF code.
 
     /*
         > csat full_adder.csat
-        > python3 test_tool.py 0 5 (only show the first 5 variables)
+        > python3 test_tool.py
     */
 
     asm
@@ -235,5 +235,5 @@ A high-level (and low-level) language that emit CNF code.
 Work in progress!
 
     > csat file.csat
-    > python3 test_tool.py file.cnf from_var to_var
+    > python3 test_tool.py file.cnf
     
