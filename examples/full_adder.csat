@@ -1,6 +1,6 @@
 /*
     > csat full_adder.csat
-    > python3 test_tool.py 0 5 (only show the first 5 variables)
+    > python3 test_tool.py
 */
 
 asm
