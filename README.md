@@ -12,40 +12,44 @@ A high-level (and low-level) language that emit CNF code.
 # low-level language
 
     /*
-    At Most One
+        > csat full_adder.csat
+        > python3 test_tool.py 0 5 (only show the first 5 variables)
     */
-    
+
     asm
-        new T
-        new F
-        put T, true
-        put F, false
+        new A
+        new B
+        new Cin
+        new Sum
+        new Cout
     end
-    
-    n = 4;
-    
-    for i = 0 to n do
+
+    def half_adder(i)
         asm
-            new X[i] // global variables
+        xor A[i], B[i], S[i]
+        and A[i], B[i], C[i]
         end
     end
-    
-    def at_most_one(m)
-        for i = 0 to m - 1 do
-            for j = i + 1 to m do
-                asm
-                    new U // local variables
-                    new V
-                    not X[i], U
-                    not X[j], V
-                    or U, V, T
-                end
-            end
+
+    n = 2;
+    for i=0 to n do
+        asm
+            new A[i]
+            new B[i]
+            new C[i]
+            new S[i]
         end
+        half_adder(i);
     end
-    
-    
-    at_most_one(n);
+    asm
+        copy S[0], A[1]
+        copy A[0], A
+        copy B[0], B
+        copy B[1], Cin
+        copy S[1], Sum
+        or   C[0], C[1], Cout
+    end
+
 
 ## high-level language
 
