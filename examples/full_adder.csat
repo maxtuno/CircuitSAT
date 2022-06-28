@@ -13,8 +13,8 @@ end
 
 def half_adder(i)
     asm
-    xor A[i], B[i], S[i]
-    and A[i], B[i], C[i]
+        xor A[i], B[i], S[i]
+        and A[i], B[i], C[i]
     end
 end
 
