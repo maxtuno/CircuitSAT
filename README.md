@@ -12,44 +12,40 @@ A high-level (and low-level) language that emit CNF code.
 # low-level language
 
     /*
-        > csat full_adder.csat
-        > python3 test_tool.py
+        > csat file.csat
+        > python3 test_tool.py file.cnf
+        
+        2:1 Multiplexer (MUX) 
     */
 
-    asm
-        new A
-        new B
-        new Cin
-        new Sum
-        new Cout
-    end
+    t = true;
+    f = false;
 
-    def half_adder(i)
+    def mx21(x, y, s)
         asm
-            xor A[i], B[i], S[i]
-            and A[i], B[i], C[i]
+            new A
+            put A, x
+
+            new B
+            put B, y
+
+            new S
+            put S, s
+
+            new Out
+
+            new s_and_b
+            new a_and_not_s
+            new not_s
+
+            not S, not_s
+            and A, not_s, a_and_not_s
+            and S, B, s_and_b
+            or  s_and_b, a_and_not_s, Out
         end
     end
 
-    n = 2;
-    for i=0 to n do
-        asm
-            new A[i]
-            new B[i]
-            new C[i]
-            new S[i]
-        end
-        half_adder(i);
-    end
-    asm
-        copy S[0], A[1]
-        copy A[0], A
-        copy B[0], B
-        copy B[1], Cin
-        copy S[1], Sum
-        or   C[0], C[1], Cout
-    end
-
+    mx21(true, true, true);
 
 ## high-level language
 
