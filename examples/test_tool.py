@@ -24,10 +24,8 @@ def satisfy(solver, params='', log=False, file_name=None):
             if line.startswith('v '):
                 lines += line.strip('v ').strip('\n') + ' '
         if len(lines) > 0:
-            a = int(sys.argv[2])
-            b = int(sys.argv[3]) 
             model = list(map(int, lines.strip(' ').split(' ')))
-            print(''.join([str(int(lit > 0)) for lit in model[:-1][a:b]]))
+            print(''.join([str(int(lit > 0)) for lit in model[:-1]]))
             with open(file_name, 'a') as file:
                 file.write(' '.join([str(-int(literal)) for literal in model]) + '\n')
             return True
