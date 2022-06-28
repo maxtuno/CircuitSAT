@@ -511,22 +511,62 @@ class CicuitSAT(CircuitSATVisitor):
         self.store[x] = self.current_literal
 
     def apply_put(self, x, boolean):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
         if boolean == 'true':
             self.add_clauses([[self.store[x]]])
         else:
             self.add_clauses([[-self.store[x]]])
 
     def apply_not(self, x, y):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
         x, y = self.store[x], self.store[y]
         self.add_clauses([[x, y],
                           [-x, -y]])
 
     def apply_copy(self, x, y):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
         x, y = self.store[x], self.store[y]
         self.add_clauses([[x, -y],
                           [-x, y]])
 
     def apply_and(self, x, y, z):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
+        if z not in self.store:
+            if '[' in z and z[:z.index('[')] in self.store:
+                zl = self.store[z[:z.index('[')]]
+                z_ = zl[eval(z[z.index('[') + 1:-1])]
+                self.store[z] = z_
         x, y, z = self.store[x], self.store[y], self.store[z]
         self.add_clauses([[x, y, -z],
                           [x, -y, -z],
@@ -534,6 +574,21 @@ class CicuitSAT(CircuitSATVisitor):
                           [-x, -y, z]])
 
     def apply_nand(self, x, y, z):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
+        if z not in self.store:
+            if '[' in z and z[:z.index('[')] in self.store:
+                zl = self.store[z[:z.index('[')]]
+                z_ = zl[eval(z[z.index('[') + 1:-1])]
+                self.store[z] = z_
         x, y, z = self.store[x], self.store[y], self.store[z]
         self.add_clauses([[x, y, z],
                           [x, -y, z],
@@ -541,6 +596,21 @@ class CicuitSAT(CircuitSATVisitor):
                           [-x, -y, -z]])
 
     def apply_or(self, x, y, z):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
+        if z not in self.store:
+            if '[' in z and z[:z.index('[')] in self.store:
+                zl = self.store[z[:z.index('[')]]
+                z_ = zl[eval(z[z.index('[') + 1:-1])]
+                self.store[z] = z_
         x, y, z = self.store[x], self.store[y], self.store[z]
         self.add_clauses([[x, y, -z],
                           [x, -y, z],
@@ -548,6 +618,21 @@ class CicuitSAT(CircuitSATVisitor):
                           [-x, -y, z]])
 
     def apply_nor(self, x, y, z):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
+        if z not in self.store:
+            if '[' in z and z[:z.index('[')] in self.store:
+                zl = self.store[z[:z.index('[')]]
+                z_ = zl[eval(z[z.index('[') + 1:-1])]
+                self.store[z] = z_
         x, y, z = self.store[x], self.store[y], self.store[z]
         self.add_clauses([[x, y, z],
                           [x, -y, -z],
@@ -555,6 +640,21 @@ class CicuitSAT(CircuitSATVisitor):
                           [-x, -y, -z]])
 
     def apply_xor(self, x, y, z):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
+        if z not in self.store:
+            if '[' in z and z[:z.index('[')] in self.store:
+                zl = self.store[z[:z.index('[')]]
+                z_ = zl[eval(z[z.index('[') + 1:-1])]
+                self.store[z] = z_
         x, y, z = self.store[x], self.store[y], self.store[z]
         self.add_clauses([[x, y, -z],
                           [x, -y, z],
@@ -562,6 +662,21 @@ class CicuitSAT(CircuitSATVisitor):
                           [-x, -y, -z]])
 
     def apply_equ(self, x, y, z):
+        if x not in self.store:
+            if '[' in x and x[:x.index('[')] in self.store:
+                xl = self.store[x[:x.index('[')]]
+                x_ = xl[eval(x[x.index('[') + 1:-1])]
+                self.store[x] = x_
+        if y not in self.store:
+            if '[' in y and y[:y.index('[')] in self.store:
+                yl = self.store[y[:y.index('[')]]
+                y_ = yl[eval(y[y.index('[') + 1:-1])]
+                self.store[y] = y_
+        if z not in self.store:
+            if '[' in z and z[:z.index('[')] in self.store:
+                zl = self.store[z[:z.index('[')]]
+                z_ = zl[eval(z[z.index('[') + 1:-1])]
+                self.store[z] = z_
         x, y, z = self.store[x], self.store[y], self.store[z]
         self.add_clauses([[x, y, z],
                           [x, -y, -z],
