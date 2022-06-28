@@ -235,5 +235,5 @@ A high-level (and low-level) language that emit CNF code.
 Work in progress!
 
     > csat file.csat
-    > python3 test_tool.py file.cnf
+    > python3 test_tool.py file.cnf from_var to_var
     
